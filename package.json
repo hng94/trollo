@@ -1,0 +1,26 @@
+{
+  "name": "trollo",
+  "version": "1.0.0",
+  "description": "Trello clone",
+  "main": "index.js",
+  "scripts": {
+    "start": "concurrently --kill-others \"npm run backend\" \"npm run frontend\"",
+    "backend": "cd backend && npm run dev",
+    "frontend": "cd frontend && npm start",
+    "build": "cd frontend && npm run build",
+    "deploy": "npm run build && cd backend && now"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hoangnguyen94/trollo.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hoangnguyen94/trollo/issues"
+  },
+  "homepage": "https://github.com/hoangnguyen94/trollo#readme",
+  "dependencies": {
+    "concurrently": "^4.0.1"
+  }
+}

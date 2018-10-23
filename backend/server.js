@@ -30,6 +30,7 @@ app.use(respond())
 // API routes
 require('./routes')(router)
 app.use(router.routes())
+app.use(require('koa-static')('./build'))
 app.use(router.allowedMethods())
 
 module.exports = app
