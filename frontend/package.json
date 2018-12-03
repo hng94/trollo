@@ -5,13 +5,22 @@
   "dependencies": {
     "@material-ui/core": "^3.3.0",
     "axios": "^0.18.0",
+    "classnames": "^2.2.6",
+    "history": "^4.7.2",
+    "node-sass": "^4.10.0",
+    "prop-types": "^15.6.1",
     "react": "^16.5.2",
     "react-beautiful-dnd": "^9.0.2",
     "react-dom": "^16.5.2",
+    "react-onclickoutside": "^6.7.1",
     "react-redux": "^5.0.7",
+    "react-router": "^4.2.0",
+    "react-router-dom": "^4.2.2",
     "react-scripts": "2.0.5",
     "redux": "^4.0.1",
-    "redux-thunk": "^2.3.0"
+    "redux-devtools-extension": "^2.13.2",
+    "redux-thunk": "^2.3.0",
+    "shortid": "^2.2.8"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -27,5 +36,9 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "devDependencies": {
+    "axios-mock-adapter": "^1.15.0",
+    "json-server": "^0.14.0"
+  }
 }

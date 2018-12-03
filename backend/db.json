@@ -1,0 +1,56 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "Sebastian",
+      "email": "hoang@gmail.com",
+      "password": 123
+    },
+    {
+      "id": 2,
+      "name": "Sebastian2",
+      "email": "sebastian@codingthesmartway.com",
+      "password": 123
+    },
+    {
+      "id": 3,
+      "name": "Sebastian3",
+      "email": "sebastian@codingthesmartway.com",
+      "password": 123
+    },
+    {
+      "name": "HoangNguyen",
+      "email": "vhoang@gmail.com",
+      "password": 123,
+      "id": 4
+    },
+    {
+      "name": "Hoang Nguyen",
+      "email": "hoang@gmail.com",
+      "password": "123",
+      "id": 5
+    },
+    {
+      "name": "Hoang Nguyen",
+      "email": "hoang2@gmail.com",
+      "password": "123",
+      "id": 6
+    }
+  ],
+  "boards": [
+    {
+      "titel": "bard2",
+      "boardID": "7Jolpl4MY",
+      "owner": 1,
+      "listOfListIDs": [],
+      "id": 2
+    },
+    {
+      "titel": "board3",
+      "boardID": "CECOC4eUZ",
+      "owner": 1,
+      "listOfListIDs": [],
+      "id": 3
+    }
+  ]
+}
