@@ -35,22 +35,54 @@
       "email": "hoang2@gmail.com",
       "password": "123",
       "id": 6
+    },
+    {
+      "name": "Hoang Nguyen",
+      "email": "hoang2@gmail.com",
+      "password": "123",
+      "id": 7
     }
   ],
   "boards": [
     {
-      "titel": "bard2",
-      "boardID": "7Jolpl4MY",
+      "titel": "Board1",
+      "boardID": "n70FNmgTu",
       "owner": 1,
       "listOfListIDs": [],
-      "id": 2
-    },
+      "lists": [],
+      "id": 1
+    }
+  ],
+  "lists": [
     {
-      "titel": "board3",
-      "boardID": "CECOC4eUZ",
-      "owner": 1,
-      "listOfListIDs": [],
-      "id": 3
+      "titel": "list1",
+      "listID": "7Jolpl4Mu",
+      "listOfCardIDs": [
+        "7Jolpl4Mo"
+      ],
+      "isDeleted": false,
+      "id": 1
+    }
+  ],
+  "cards": [
+    {
+      "titel": "card1",
+      "cardID": "7Jolpl4su",
+      "description": "First Card",
+      "isDeleted": false,
+      "listOfMembers": [
+        "6"
+      ],
+      "listOfLabelIDs": [
+        "1"
+      ]
+    }
+  ],
+  "labels": [
+    {
+      "labelID": "1",
+      "titel": "Bug",
+      "color": "red"
     }
   ]
 }

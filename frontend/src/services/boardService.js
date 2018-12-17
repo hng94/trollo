@@ -1,35 +1,42 @@
+import axios from 'axios'
+
 export const boardService = {
-    getBoards,
-    createBoard
+    getByUserId,
+    getBoardById,
+    create
 }
 
-const baseURL = "http://localhost:4000";
+const baseURL = "http://localhost:4000/api/boards";
 
-function createBoard(board) {
+function create(board) {
     const requestOptions = {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(board)
     };
     
-    return fetch(`${baseURL}/boards/`, requestOptions)
+    return axios.get(`${baseURL}/boards/`, requestOptions)
     .then(handleResponse)
     .then(data => {
-        debugger
         return data;
     })
 }
 
-function getBoards() {
+function getByUserId() {
     const requestOptions = {
         method: 'GET',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 
+            'Content-Type': 'application/json',
+            'Access-Control-Allow-Origin': '*', 
+        },
     };
 
-    return fetch(`${baseURL}/boards`, requestOptions)
-        .then(handleResponse)
+    return axios.get(`${baseURL}/byUserId/5c0e0dfdb4f820f14dffcb79`, requestOptions)
         .then(data => {
             return data;
+        })
+        .catch(error => {
+            return Promise.reject(error)
         })
 }
 
@@ -39,7 +46,7 @@ function getBoardById(boardId) {
         headers: { 'Content-Type': 'application/json' },
     };
 
-    return fetch(`${baseURL}/boards?id=${boardId}`, requestOptions)
+    return fetch(`${baseURL}/boards?boardID=${boardId}`, requestOptions)
         .then(handleResponse)
         .then(data => {
             const board = data[0];
@@ -48,7 +55,8 @@ function getBoardById(boardId) {
 }
 
 function handleResponse(response) {
-    return response.text().then(text => {
+    debugger
+    return response.data().then(text => {
         const data = text && JSON.parse(text);
         if (!response.ok) {
             if (response.status === 401) {

@@ -1,34 +1,41 @@
 import { boardConstants } from './constants';
 import { boardService } from '../services/boardService';
+import { listService } from '../services/listService';
+import { listActions } from './listActions';
 import { alertActions } from './alertActions';
 
 export const boardActions = {
-    getBoards,
+    getByUserId,
     getBoardById,
-    addBoard,
     createBoard
 }
 
-function gettingBoard() { 
-    return { 
-        type: boardConstants.GETTING_BOARD
-    } 
-}
-
-
-function getBoards() {
+function getByUserId() {
     return dispatch => {
-        dispatch(gettingBoard());
-        debugger
-        boardService.getBoards()
+        dispatch({
+            type: boardConstants.GET_BOARDS_REQUEST
+        });
+        boardService.getByUserId()
             .then(
                 boards => {
-                    boards.forEach(board => {
-                        dispatch(addBoard(board));
+                    debugger
+                    boards.forEach(item => {
+                        dispatch({
+                            type: 'ADD_BOARD',
+                            payload: item
+                        })
                     });
-                },
+                    dispatch({
+                        type: boardConstants.GET_BOARDS_SUCCESS,
+                    })
+                })
+            .catch(
                 error => {
-                    dispatch(alertActions.error(error.toString()));
+                    debugger
+                    dispatch({
+                        type: boardConstants.GET_BOARDS_FAILURE,
+                        payload: error.toString()
+                    });
                 }
             )
     }
@@ -36,14 +43,22 @@ function getBoards() {
 
 function getBoardById(boardId) {
     return dispatch => {
-        dispatch(gettingBoard());
-        boardService.getBoard(boardId)
+        dispatch({
+            type: boardConstants.GET_BOARD_REQUEST
+        });
+        boardService.getBoardById(boardId)
             .then(
                 board => {
-                    // dispatch(addBoardToState(board));
+                    dispatch({
+                        type: boardConstants.GET_BOARD_SUCCESS,
+                        payload: board
+                    });
                 },
                 error => {
-                    dispatch(alertActions.error(error.toString()));
+                    dispatch({
+                        type: boardConstants.GET_BOARD_FAILURE,
+                        payload: error.toString()
+                    });
                 }
             )
     }
@@ -51,21 +66,23 @@ function getBoardById(boardId) {
 
 function createBoard(board) {
     return dispatch => {
+        dispatch({
+            type: boardConstants.CREATE_BOARD_REQUEST
+        })
         boardService.createBoard(board)
             .then(
                 board => {
-                    dispatch(addBoard(board));
+                    dispatch({
+                        type: boardConstants.CREATE_BOARD_SUCCESS,
+                        payload: board
+                    });
                 },
                 error => {
-                    dispatch(alertActions.error(error.toString()));
+                    dispatch({
+                        type: boardConstants.CREATE_BOARD_FAILURE,
+                        payload: error.toString()
+                    });
                 }
             )
-    }
-}
-
-function addBoard(board) { 
-    return { 
-        type: boardConstants.ADD_BOARD, 
-        payload: board 
     }
 }

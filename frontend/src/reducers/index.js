@@ -1,14 +1,17 @@
 import { combineReducers } from "redux";
-import cardReducer from "./cardReducer";
-import boardReducer from "./boardReducer";
-import listReducer from "./listReducer";
+import cardsById from "./cardsById";
+import listsById from "./listsById";
+import boardsById from "./boardsById";
+import isGuest from "./isGuest";
+import currentBoardId from "./currentBoardId";
 import userReducer from "./userReducer";
 import alert from "./alertReducer";
 
 export default combineReducers({
-  cardReducer,
-  listReducer,
-  boardReducer,
+  cardsById,
+  listsById,
+  boardsById,
   alert,
-  user: userReducer
+  user: userReducer,
+  // currentBoardId
 });
